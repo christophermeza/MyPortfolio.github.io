@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /*page*/
+        html {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /*text*/
+       div.photography {
+            padding-left: 10px;
+        }
+
+        /* The grid: Four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        /* Style the images inside the grid */
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .column img:hover {
+            opacity: 1;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The expanding image container */
+        .container {
+            position: relative;
+            display: none;
+        }
+
+        /* Expanding image text */
+        #imgtext {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Closable button inside the expanded image */
+        .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        /*navbar*/
+        .nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .nav li {
+            display: inline;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color: #3c153b;
+            margin-top: 25px;
+        }
+
+        nav .active {
+            color: #db2b39;
+        }
+
+        hr {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<div id="navbar">
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">About Me</a></li>
+            <li><a class="active" href="TabbedImageGallery.html">Photography</a></li>
+            <li><a href="TypographyTabbed.html">Typography</a></li>
+        </ul>
+        <hr>
+    </nav>
+</div>
+
+<body>
+
+    <div class="photography">
+        <h2>Photography</h2>
+        <p>Click on image to view in full.</p>
+    </div>
+
+    <!-- The four columns -->
+    <div class="row">
+        <div class="column">
+            <img src="../MyPortfolio/images/209b.jpg" alt="reading" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Alysn1 (2) - Copy.jpg" alt="putting make up on" style="width:100%"
+                onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Alaura2.png" alt="singing" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/[000616] (2).png" alt="photographer" style="width:100%"
+                onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Jessica.png" alt="playing guitar" style="width:100%"
+                onclick="myFunction(this);">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <img src="../MyPortfolio/images/Jose.jpg" alt="chilling" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/ModelCabinb.jpg" alt="looking out the window" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Kennedy1.jpg" alt="writing" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Brian.jpg" alt="posing" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="../MyPortfolio/images/Maddie1 - Copy.jpg" alt="yoga" style="width:100%"
+                onclick="myFunction(this);">
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        <div id="imgtext"></div>
+    </div>
+
+    <!--open image-->
+    <script>
+        function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            var imgText = document.getElementById("imgtext");
+            expandImg.src = imgs.src;
+            imgText.innerHTML = imgs.alt;
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
